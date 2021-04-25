@@ -6,6 +6,8 @@ import {
   statelessSessions,
 } from '@keystone-next/keystone/session';
 import { User } from './schemas/User';
+import { Product } from './schemas/Product';
+import { ProductImage } from './schemas/ProductImage';
 
 const databaseURL = process.env.DATABASEURL;
 
@@ -40,14 +42,15 @@ export default withAuth(
     lists: createSchema({
       // scheme items go in here
       User,
+      Product,
+      ProductImage,
     }),
     ui: {
       // show the UI only for people who pass this test
-      isAccessAllowed: ({ session }) => {
-        console.log(session);
+      isAccessAllowed: ({ session }) =>
+        // console.log(session);
         // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-        return !!session?.data;
-      },
+        !!session?.data,
     },
     session: withItemData(statelessSessions(sessionConfig), {
       // graphQL query
