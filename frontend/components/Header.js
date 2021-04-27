@@ -9,7 +9,7 @@ const Logo = styled.h1`
   position: relative;
   z-index: 2;
   transform: skew(-7deg);
-  a{
+  a {
     color: white;
     text-decoration: none;
     text-transform: uppercase;
@@ -32,15 +32,12 @@ const HeaderStyles = styled.header`
   }
 `;
 
-
 export default function Header() {
   return (
     <HeaderStyles>
       <div className="bar">
         <Logo>
-          <Link href="/">
-            Sick fits
-        </Link>
+          <Link href="/">Sick fits</Link>
         </Logo>
       </div>
       <div className="sub-bar">
